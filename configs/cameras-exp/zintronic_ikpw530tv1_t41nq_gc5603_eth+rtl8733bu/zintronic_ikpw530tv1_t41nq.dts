@@ -114,7 +114,7 @@
 
 	/* special property */
 	ingenic,wp-gpios = <0>;
-	ingenic,cd-gpios = <&gpb 27 GPIO_ACTIVE_LOW INGENIC_GPIO_NOBIAS>;
+	ingenic,cd-gpios = <&gpb 26 GPIO_ACTIVE_LOW INGENIC_GPIO_NOBIAS>;
 	ingenic,rst-gpios = <0>;
 	pinctrl-0 = <&msc0_pb>;
 	//mmc-pwrseq = <&mmc0_pwrseq>;
@@ -225,27 +225,16 @@
 		clock-frequency = <24000000>;
 	};
 
-	gpio_keys: gpio_keys {
+	gpio_keys: gpio-keys {
 		   compatible = "gpio-keys";
 
-		   power {
-			   label = "Power";
-			   linux,code = <KEY_POWER>;
-			   gpios = <&gpa 30 GPIO_ACTIVE_LOW INGENIC_GPIO_NOBIAS>;
-			   gpio-key,wakeup;
-		   };
-            bootsel0 {
-                label = "bootsel0";
-                linux,code = <KEY_HOME>;
-                gpios = <&gpc 0 GPIO_ACTIVE_HIGH INGENIC_GPIO_NOBIAS>;
-            };
-
-            bootsel1 {
-                label = "bootsel1";
-                linux,code = <KEY_BACK>;
-                gpios = <&gpc 1 GPIO_ACTIVE_HIGH INGENIC_GPIO_NOBIAS>;
-            };
-
+	reset {
+		label = "Reset";
+		linux,code = <KEY_ENTER>;
+		gpios = <&gpb 27 GPIO_ACTIVE_LOW INGENIC_GPIO_NOBIAS>;
+		debounce-interval = <100>;
+		gpio-key,wakeup;
+	};
 	   };
 };
 
