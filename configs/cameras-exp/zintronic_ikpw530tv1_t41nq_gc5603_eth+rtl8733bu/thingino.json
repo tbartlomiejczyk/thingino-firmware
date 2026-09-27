@@ -8,7 +8,7 @@
     "ircut": "49 50",
     "white": {
       "pin": 81,
-      "active_low": false
+      "active_low": true
     },
     "ir850": {
       "pin": 82,

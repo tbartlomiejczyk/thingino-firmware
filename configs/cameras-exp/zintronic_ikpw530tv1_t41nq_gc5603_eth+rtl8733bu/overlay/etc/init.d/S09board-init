@@ -1,9 +1,2 @@
 #!/bin/sh
-# RTL8733BU module power-enable: GPIO 61 active-low
-pin=61
-[ -d /sys/class/gpio/gpio$pin ] || echo $pin > /sys/class/gpio/export
-echo out > /sys/class/gpio/gpio$pin/direction
-echo 0 > /sys/class/gpio/gpio$pin/value
-
-# turn off white leds
-gpio set 81
+gpio set 81 # active-low white bank: HIGH = off
